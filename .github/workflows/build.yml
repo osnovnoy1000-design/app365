@@ -5,8 +5,7 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
-      - name: Setup Python
-        uses: actions/setup-python@v5
+      - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
       - name: Install deps
@@ -16,8 +15,7 @@ jobs:
           pip install buildozer cython==0.29.36
       - name: Build APK
         run: yes | buildozer android debug
-      - name: Upload
-        uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v4
         with:
           name: apk
           path: bin/*.apk
